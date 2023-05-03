@@ -65,7 +65,6 @@ export default function Home() {
 
   const _swapTokens = async () => {
     try {
-      console.log('swap amount: ', swapAmount)
       // convert the amount entered by user to a BigNumber
       const swapAmountWei = utils.parseEther(swapAmount);
       // check if the user entered zero
