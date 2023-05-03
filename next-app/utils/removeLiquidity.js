@@ -27,12 +27,12 @@ export const getTokensAfterRemove = async (
 ) => {
   try {
     const exchangeContract = new Contract(
-        EXCHANGE_CONTRACT_ADDRESS,
-        EXCHANGE_CONTRACT_ABI,
-        provider
-    );
-    // total supply of CD LP tokens 
-    const _totalSupply = exchangeContract.totalSupply();
+      EXCHANGE_CONTRACT_ADDRESS,
+      EXCHANGE_CONTRACT_ABI,
+      provider
+      );
+      // total supply of CD LP tokens 
+      const _totalSupply = await exchangeContract.totalSupply();
     // amount of ether sent back to the user 
     const _removeEther = _ethBalance.mul(removeLPTokensWei).div(_totalSupply);
     // amount of CD tokens sent to the user 
