@@ -1,4 +1,4 @@
-import { Contract, Signer } from "ethers";
+import { Contract } from "ethers";
 import {
   EXCHANGE_CONTRACT_ADDRESS,
   EXCHANGE_CONTRACT_ABI,
@@ -56,7 +56,7 @@ export const swapTokens = async (
   let tx;
 
   if (ethSelected) {
-    tx = await exchangeContract.ethToCrytoDevToken(
+    tx = await exchangeContract.ethToCryptoDevToken(
       tokensToBeReceivedAfterSwap,
       {
         value: swapAmountWei,
@@ -66,7 +66,6 @@ export const swapTokens = async (
     tx = await tokenContract.approve(
       EXCHANGE_CONTRACT_ADDRESS,
       swapAmountWei.toString(),
-      tokensToBeReceivedAfterSwap
     );
     await tx.wait();
 
